@@ -19,7 +19,7 @@ class Controller {
 ```
   
   
-The condition function can be a class method as well:
+The condition function can be a class method as well, and the result will be exactly the same:
 ```typescript
 class Controller {
   constructor() {}
@@ -28,7 +28,7 @@ class Controller {
     condition: (result: any, context: any) => context.isProcessOk(result),
     numRetries: 6
   })
-  public async process2(shift: number): Promise<number> {
+  public async process(shift: number): Promise<number> {
     return shift + Math.random();
   }
 
