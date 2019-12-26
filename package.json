@@ -1,7 +1,7 @@
 {
-  "name": "wait-until",
+  "name": "wait-until-condition",
   "version": "1.0.0",
-  "description": "",
+  "description": "Executes a function until a condition is fulfilled with a truthy value",
   "main": "dist/index.js",
   "directories": {
     "test": "tests"
@@ -22,15 +22,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PierreRAFFA/wait-until.git"
+    "url": "git+https://github.com/PierreRAFFA/wait-until-condition.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "wait",
+    "waituntil",
+    "wait-until",
+    "retry",
+    "condition"
+  ],
+  "author": "Pierre RAFFA",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PierreRAFFA/wait-until/issues"
+    "url": "https://github.com/PierreRAFFA/wait-until-condition/issues"
   },
-  "homepage": "https://github.com/PierreRAFFA/wait-until#readme",
+  "homepage": "https://github.com/PierreRAFFA/wait-until-condition#readme",
   "devDependencies": {
     "concurrently": "^5.0.2",
     "nodemon": "^2.0.2",

@@ -1,4 +1,7 @@
-# wait-until
+# Wait Until
+
+WaitUntil executes a function and expects a condition and waits until that condition is fulfilled with a truthy value.
+
 
 ### As a Typescript decorator
 
@@ -53,7 +56,6 @@ const process = async (shift: number): Promise<number> => {
   return shift + Math.random();
 };
 
-
 const condition: IConditionFunction = (result, context) => result > 0.9;
 const response = await waitUntilWrapper<number>(request, {
   condition: condition,
@@ -61,7 +63,7 @@ const response = await waitUntilWrapper<number>(request, {
   numRetries: 3,
   onRetry: (result, context) => console.log('onRetry'),
   onError: (error, context) => console.log(error),
-  onRetriesComplete: (result, context) => console.log('onRetriesComplete'),
+  onRetriesComplete: (context) => console.log('onRetriesComplete'),
 })(0.2);
 
 console.log(response);
@@ -72,6 +74,7 @@ console.log(response);
 **condition**: 
 Function which tests the response of the original function. 
 If the condition returns true, then the response is returned. If false, the original function will be executed again until the number of retries has been reached.
+
 **numRetries**:
 Specifies the maximum number of retries
 
