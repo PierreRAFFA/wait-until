@@ -80,26 +80,27 @@ console.log(response);
 
 ### WaitUntil Options
 
-**condition**: 
+**condition**: Function  
 Function which tests the response of the original function. 
 If the condition returns true, then the response is returned. If false, the original function will be executed again until the number of retries has been reached.  
 
-**numRetries**:
+**numRetries**: number   
 Specifies the maximum number of retries.  
 
-**algorithm**: (optional)  
-Can be _constant_, _fibonacci_ or a custom function managed by you.  
-To use the native algorithm, first import it from "wait-until-condition/dist/algorithms";
+**algorithm**: Function (optional, default is _constant_ calling the method every second)   
+Can be the algorithm function *constant*, *fibonacci* or a custom function managed by you.  
+To use a native algorithm function, first import it from "wait-until-condition/dist/algorithms".  
+To use a custom function, the custom function should implement `IAlgorithmFunction`.  
 
-**onRetry**: (optional)  
+**onRetry**: Function (optional)  
 Function called on each retry.  
-This function should implement `IRetryFunction`.   
+This function should implement `IRetryFunction`.  
 
-**onRetriesComplete**: (optional)  
+**onRetriesComplete**: Function (optional)  
 Function called when the condition has never been reached after all retries.  
 This function should implement `IRetriesCompleteFunction`.   
 
-**onError**: (optional)  
+**onError**: Function (optional)  
 Function called when an error occurs during the execution of the original function.  
 When an error occurs, it won't stop the process and the original function can be called again if the maximum number of retries have not been reached yet.   
 This function should implement `IErrorFunction`.
