@@ -66,7 +66,7 @@ const process = async (shift: number): Promise<number> => {
 };
 
 const condition: IConditionFunction = (result, context) => result > 0.9;
-const response = await waitUntil<number>(request, {
+const response = await waitUntil<number>(process, {
   condition: condition,
   algorithm: fibonacci,
   numRetries: 3,
