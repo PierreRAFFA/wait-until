@@ -88,7 +88,7 @@ If the condition returns true, then the response is returned. If false, the orig
 Specifies the maximum number of retries.  
 
 **algorithm**: `Function` (optional)  
-Specfies how often the function must be called following a specific algorithm.    
+Specifies how often the function must be called following a specific algorithm.    
 Can be one of the native algorithm function `constant`, `fibonacci` or a custom function.  
 Default is `constant` calling the method every second.  
 To use a native algorithm function, first import it from "wait-until-condition/dist/algorithms".  
