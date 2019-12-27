@@ -82,25 +82,25 @@ console.log(response);
 
 **condition**: 
 Function which tests the response of the original function. 
-If the condition returns true, then the response is returned. If false, the original function will be executed again until the number of retries has been reached.
+If the condition returns true, then the response is returned. If false, the original function will be executed again until the number of retries has been reached.  
 
 **numRetries**:
-Specifies the maximum number of retries
+Specifies the maximum number of retries.  
 
-**algorithm**: (optional)
-Can be _constant_, _fibonacci_ or a custom function managed by you.
+**algorithm**: (optional)  
+Can be _constant_, _fibonacci_ or a custom function managed by you.  
 To use the native algorithm, first import it from "wait-until-condition/dist/algorithms";
 
-**onRetry**: (optional)
-Function called on each retry
-This function should implement `IRetryFunction`
+**onRetry**: (optional)  
+Function called on each retry.  
+This function should implement `IRetryFunction`.   
 
-**onRetriesComplete**: (optional)
-Function called when the condition has never been reached after all retries
-This function should implement `IRetriesCompleteFunction`
+**onRetriesComplete**: (optional)  
+Function called when the condition has never been reached after all retries.  
+This function should implement `IRetriesCompleteFunction`.   
 
-**onError**: (optional)
-Function called when an error occurs during the execution of the original function. 
-When an error occurs, it won't stop the process and the original function can be called again if the maximum number of retries have not been reached yet.
-This function should implement `IErrorFunction`
+**onError**: (optional)  
+Function called when an error occurs during the execution of the original function.  
+When an error occurs, it won't stop the process and the original function can be called again if the maximum number of retries have not been reached yet.   
+This function should implement `IErrorFunction`.
 
