@@ -7,14 +7,13 @@ export const fibonacci: IAlgorithmFunction = (index: number): number => {
   let result: number;
   if (index == 0) {
     result = 0
-  }else if (index == 1) {
+  } else if (index == 1) {
     result = 1;
-  }else{
+  } else {
     let prevPrev: number = 0;
     let prev: number = 1;
 
-    for (let i = 2; i <= index; i++)
-    {
+    for (let i = 2; i <= index; i++) {
       result = prev + prevPrev;
       prevPrev = prev;
       prev = result;

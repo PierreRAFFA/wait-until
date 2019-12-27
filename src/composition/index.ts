@@ -2,7 +2,7 @@ import { IWaitUntilOptions } from '../interfaces';
 import { DEFAULT_CONFIG, retry } from '../waitUntil';
 
 /**
- * Wrapped a function into a backoff and returns the composition
+ * Wraps a function into waitUntil and returns the composition
  *
  * @param originalFunction
  * @param options
