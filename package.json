@@ -37,7 +37,9 @@
   },
   "homepage": "https://github.com/PierreRAFFA/wait-until-condition#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.25",
     "concurrently": "^5.0.2",
+    "jest": "^24.9.0",
     "nodemon": "^2.0.2",
     "typescript": "^3.7.4"
   }

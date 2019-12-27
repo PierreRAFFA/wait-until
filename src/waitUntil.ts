@@ -4,41 +4,19 @@ import { constant } from './algorithms';
 /**
  * Default Backoff Config
  */
-const DEFAULT_CONFIG: IWaitUntilOptions = {
+export const DEFAULT_CONFIG: IWaitUntilOptions = {
   numRetries: 10,
-  condition: result => true,
+  condition: (result: any) => true,
   algorithm: constant,
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////  WAITUNTIL FOR DECORATOR
-/**
- * Executes a function in a backoff (for a decorator)
- *
- * @param originalFunction
- * @param options
- * @param context
- * @param args
- */
-export async function waitUntilDecorator<T = any>(originalFunction: Function, options: IWaitUntilOptions = undefined, context: any, ...args: Array<any>): Promise<T> {
-  const fullOptions: IWaitUntilOptions = {...DEFAULT_CONFIG, ...options};
-  return await retry<T>(originalFunction, context, args, fullOptions, fullOptions.numRetries);
-}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////  WAITUNTIL FOR FUNCTIONS
-/**
- * Wrapped a function into a backoff and returns the composition
- *
- * @param originalFunction
- * @param options
- */
-export function waitUntil<T = any>(originalFunction: Function, options: IWaitUntilOptions = undefined): any {
-  return async (...args: Array<any>) => {
-    const fullOptions: IWaitUntilOptions = {...DEFAULT_CONFIG, ...options};
-    return await retry<T>(originalFunction, this, args, fullOptions, fullOptions.numRetries);
-  };
-}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////  WAITUNTIL MECHANISM
@@ -51,7 +29,7 @@ export function waitUntil<T = any>(originalFunction: Function, options: IWaitUnt
  * @param context
  * @param args
  */
-async function retry<T>(originalFunction: any, context: any = undefined, args: any[], options: IWaitUntilOptions, retriesLeft: number): Promise<T> {
+export async function retry<T>(originalFunction: any, context: any = undefined, args: any[], options: IWaitUntilOptions, retriesLeft: number): Promise<T> {
   let result: T;
   try {
     const functionResult: T = await originalFunction.apply(context, args);
