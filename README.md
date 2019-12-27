@@ -1,13 +1,19 @@
 # Wait Until
 
-WaitUntil executes a function and expects a condition and waits until that condition is fulfilled with a truthy value.
+WaitUntil executes a function, expects a condition and waits until that condition is fulfilled with a truthy value.
+This can be used in applications and e2e tests as well.
 
+## Install
+```bash
+npm i wait-until-condition
+```
 
 ### As a Typescript decorator
 
 > Note that a decorator can only be used in a class or method class
 
 ```typescript
+import { waitUntil } from 'wait-until-condition/dist/decorator';
 class Controller {
   constructor() {}
   
@@ -24,6 +30,7 @@ class Controller {
   
 The condition function can be a class method as well, and the result will be exactly the same:
 ```typescript
+import { waitUntil } from 'wait-until-condition/dist/decorator';
 class Controller {
   constructor() {}
 
@@ -52,12 +59,16 @@ console.log(response);
 ### As a composition
 
 ```typescript
+import { waitUntil } from 'wait-until-condition/dist/composition';
+import { fibonacci } from 'wait-until-condition/dist/algorithms';
+import { IConditionFunction } from 'wait-until-condition/dist/interfaces';
+
 const process = async (shift: number): Promise<number> => {
   return shift + Math.random();
 };
 
 const condition: IConditionFunction = (result, context) => result > 0.9;
-const response = await waitUntilWrapper<number>(request, {
+const response = await waitUntil<number>(request, {
   condition: condition,
   algorithm: fibonacci,
   numRetries: 3,
@@ -80,7 +91,7 @@ Specifies the maximum number of retries
 
 **algorithm**: (optional)
 Can be _constant_, _fibonacci_ or a custom function managed by you.
-To use the native algorithm, first import it. 
+To use the native algorithm, first import it from "wait-until-condition/dist/algorithms";
 
 **onRetry**: (optional)
 Function called on each retry
