@@ -3,14 +3,12 @@
 WaitUntil executes a function, expects a condition and waits until that condition is fulfilled with a truthy value.
 This can be used in applications and e2e tests as well.
 
-## Install
+### Install
 ```bash
 npm i wait-until-condition
 ```
 
-### As a Typescript decorator
-
-> Note that a decorator can only be used in a class or method class
+### As a Typescript decorator (a decorator can only be used in a class or method class)
 
 ```typescript
 import { waitUntil } from 'wait-until-condition/dist/decorator';
