@@ -87,10 +87,12 @@ If the condition returns true, then the response is returned. If false, the orig
 **numRetries**: `number`  
 Specifies the maximum number of retries.  
 
-**algorithm**: `Function` (optional, default is `constant` calling the method every second)   
-Can be the algorithm function `constant`, `fibonacci` or a custom function managed by you.  
+**algorithm**: `Function` (optional)  
+Specfies how often the function must be called following a specific algorithm.    
+Can be one of the native algorithm function `constant`, `fibonacci` or a custom function.  
+Default is `constant` calling the method every second.  
 To use a native algorithm function, first import it from "wait-until-condition/dist/algorithms".  
-To use a custom function, the custom function should implement `IAlgorithmFunction`.  
+If you prefer a custom function, the custom function should implement `IAlgorithmFunction`.  
 
 **onRetry**: `Function` (optional)  
 Function called on each retry.  
