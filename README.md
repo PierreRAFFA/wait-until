@@ -1,4 +1,4 @@
-# Wait Until
+# Wait Until Condition
 
 WaitUntil executes a function, expects a condition and waits until that condition is fulfilled with a truthy value.
 This can be used in applications and e2e tests as well.
