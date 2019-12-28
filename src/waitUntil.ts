@@ -5,7 +5,7 @@ import { constant } from './algorithms';
  * Default Backoff Config
  */
 export const DEFAULT_CONFIG: IWaitUntilOptions = {
-  numRetries: 10,
+  maxRetries: 10,
   condition: (result: any) => true,
   algorithm: constant,
 };
@@ -37,7 +37,7 @@ export async function retry<T>(originalFunction: any, context: any = undefined, 
 
   if (!result) {
     if (retriesLeft) {
-      const sleepDuration: number = options.algorithm && options.algorithm(options.numRetries - retriesLeft + 1);
+      const sleepDuration: number = options.algorithm && options.algorithm(options.maxRetries - retriesLeft + 1);
       await sleep(sleepDuration);
       return await retry<T>(originalFunction, context, args, options, --retriesLeft);
     } else {

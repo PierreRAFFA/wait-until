@@ -17,7 +17,7 @@ class Controller {
   
   @waitUntil({
     condition: (result: any) => result > .85,
-    numRetries: 6
+    maxRetries: 6
   })
   public async process(shift: number): Promise<number> {
     return shift + Math.random();
@@ -34,7 +34,7 @@ class Controller {
 
   @waitUntil({
     condition: (result: any, context: any) => context.isProcessOk(result),
-    numRetries: 6
+    maxRetries: 6
   })
   public async process(shift: number): Promise<number> {
     return shift + Math.random();
@@ -69,7 +69,7 @@ const condition: IConditionFunction = (result, context) => result > 0.9;
 const response = await waitUntil<number>(process, {
   condition: condition,
   algorithm: fibonacci,
-  numRetries: 3,
+  maxRetries: 3,
   onRetry: (result, context) => console.log('onRetry'),
   onError: (error, context) => console.log(error),
   onRetriesComplete: (context) => console.log('onRetriesComplete'),
@@ -84,7 +84,7 @@ console.log(response);
 Function which tests the response of the original function. 
 If the condition returns true, then the response is returned. If false, the original function will be executed again until the number of retries has been reached.  
 
-**numRetries**: `number`  
+**maxRetries**: `number`  
 Specifies the maximum number of retries.  
 
 **algorithm**: `Function` (optional)  

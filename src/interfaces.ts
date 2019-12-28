@@ -1,6 +1,6 @@
 export interface IWaitUntilOptions {
   condition: IConditionFunction;
-  numRetries: number;
+  maxRetries: number;
   algorithm?: IAlgorithmFunction;
   onRetry?: IRetryFunction,
   onRetriesComplete?: IRetriesCompleteFunction,

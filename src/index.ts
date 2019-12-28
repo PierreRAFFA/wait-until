@@ -10,7 +10,7 @@
 //
 //   @waitUntil({
 //     condition: (result: any) => result > .25,
-//     numRetries: 6
+//     maxRetries: 6
 //   })
 //   public async process1(shift: number): Promise<number> {
 //     return shift + Math.random();
@@ -18,7 +18,7 @@
 //
 //   @waitUntil({
 //     condition: (result: any, context: any) => context.isProcessOk(result),
-//     numRetries: 6
+//     maxRetries: 6
 //   })
 //   public async process2(shift: number): Promise<number> {
 //     return shift + Math.random();
@@ -41,9 +41,9 @@
 //
 //   const request = async (shift: number): Promise<number> => {
 //     const rand: number = shift + Math.random();
-//     console.log(shift);
-//     console.log(rand);
-//     console.log('request');
+//     // console.log(shift);
+//     // console.log(rand);
+//     // console.log('request');
 //     return rand;
 //   };
 //
@@ -52,7 +52,7 @@
 //   const result2 = await waitUntilWrapper<number>(request, {
 //     condition: condition,
 //     algorithm: fibonacci,
-//     numRetries: 3,
+//     maxRetries: 3,
 //     onRetry: (result, context) => console.log('onRetry'),
 //     onError: (error, context) => console.log(error),
 //     onRetriesComplete: (context) => console.log('onRetriesComplete'),

@@ -10,6 +10,6 @@ import { DEFAULT_CONFIG, retry } from '../waitUntil';
 export function waitUntil<T = any>(originalFunction: Function, options: IWaitUntilOptions = undefined): any {
   return async (...args: Array<any>) => {
     const fullOptions: IWaitUntilOptions = {...DEFAULT_CONFIG, ...options};
-    return await retry<T>(originalFunction, this, args, fullOptions, fullOptions.numRetries);
+    return await retry<T>(originalFunction, this, args, fullOptions, fullOptions.maxRetries);
   };
 }

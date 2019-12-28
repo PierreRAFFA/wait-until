@@ -24,5 +24,5 @@ export function waitUntil(options: IWaitUntilOptions = undefined): Function {
  */
 async function waitUntilDecorator<T = any>(originalFunction: Function, options: IWaitUntilOptions = undefined, context: any, ...args: Array<any>): Promise<T> {
   const fullOptions: IWaitUntilOptions = {...DEFAULT_CONFIG, ...options};
-  return await retry<T>(originalFunction, context, args, fullOptions, fullOptions.numRetries);
+  return await retry<T>(originalFunction, context, args, fullOptions, fullOptions.maxRetries);
 }
