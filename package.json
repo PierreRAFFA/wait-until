@@ -1,6 +1,6 @@
 {
   "name": "wait-until-condition",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Executes a function until a condition is fulfilled with a truthy value",
   "main": "dist/index.js",
   "directories": {
